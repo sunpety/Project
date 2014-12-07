@@ -5,18 +5,26 @@
  */
 package com.servlet.account;
 
+import com.aptech.elevation.entity.Account;
+import com.aptech.elevation.entity.session.AccountFacadeLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+import javax.ejb.EJB;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author NeedMoney
  */
 public class AccountServlet extends HttpServlet {
+    @EJB
+    private AccountFacadeLocal accountFacade;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,18 +39,82 @@ public class AccountServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            
+		HttpSession session = request.getSession();
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet AccountServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet AccountServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            String username=request.getParameter("username");
+            String password=request.getParameter("password");
+            String action=request.getParameter("action");
+            String url="index.jsp";
+            if("login".equals(action))
+            {
+                boolean checklogin=accountFacade.CheckLogin_Home(username, password);
+                if(checklogin)
+                {
+                    url="index.jsp";
+                    request.getSession().setAttribute("username", username);
+                }
+                else
+                {
+                    url="index.jsp?page=login-register";
+                    request.setAttribute("error_login",
+                            "Username or password incorrect.");
+                }
+            }else if("register".equals(action))
+            {
+                
+                Account a=new Account();
+                a.setAccountUsername(request.getParameter("username"));
+                a.setAccountPassword(request.getParameter("password"));
+                a.setAccountFirstname(request.getParameter("firstname"));
+                a.setAccountLastname(request.getParameter("lastname"));
+                a.setAccountCompany(request.getParameter("company"));
+                a.setAccountAddress1(request.getParameter("address1"));
+                a.setAccountAddress2(request.getParameter("address2"));
+                a.setAccountCity(request.getParameter("city"));
+                a.setAccountStates(request.getParameter("states"));
+                a.setAccountZipcode(request.getParameter("zipcode"));
+                a.setAccountCountry(request.getParameter("country"));
+                a.setAccountPhone(request.getParameter("phone_number"));
+                a.setAccountEmail(request.getParameter("email"));
+                a.setRolesId(0);
+                a.setAccountStatus(true);
+                boolean Checkexist = accountFacade.Checkexist_User(username);
+                if(!Checkexist)
+                {
+                accountFacade.create(a);
+                url="index.jsp?page=login-register";
+                    request.setAttribute("success_register",
+                            "Register account success, please login.");
+                }
+                else
+                {
+                    url="index.jsp?page=login-register";
+                    request.setAttribute("error_dupe_register",
+                            "Username already exists, Please enter another username.");
+                }
+            }
+            else if("test".equals(action))
+            {
+                out.println("test action");
+                List<Account> finall=accountFacade.findAll();
+                request.getSession().setAttribute("accounts", finall);
+                url="index.jsp?page=test-ok";
+            }
+            else if("logout".equals(action))
+            {
+                session.removeAttribute("username");
+            }
+                    dispatch(url, request, response);
         }
     }
+    	public void dispatch(String jsp, HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		if (jsp != null) {
+			RequestDispatcher rd = request.getRequestDispatcher(jsp);
+			rd.forward(request, response);
+		}
+	}
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

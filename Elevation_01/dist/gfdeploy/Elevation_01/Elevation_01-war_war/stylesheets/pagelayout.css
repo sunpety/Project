@@ -1587,10 +1587,10 @@ img.zoom {
 	
 /* CONTACT US PAGE
 ------------------------------------------------------------ */
-#contactform .sep {
+.contactform .sep {
 	margin:	0 0 1em 0;
 	}
-#contactform .buttonAlign {
+.contactform .buttonAlign {
 	margin-left: 146px;
 	}
 .contactMap {
@@ -1601,11 +1601,11 @@ address.main {
 	margin-bottom: 1em;
 	font-style: normal;
 	}
-#contactform textarea {
+.contactform textarea {
 	width: 270px;
 	height: 100px;
 	}
-#contactform .loader {
+.contactform .loader {
 	padding: 0 10px;
 	}
 	

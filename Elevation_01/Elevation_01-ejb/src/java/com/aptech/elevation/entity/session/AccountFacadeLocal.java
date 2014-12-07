@@ -29,5 +29,9 @@ public interface AccountFacadeLocal {
     List<Account> findRange(int[] range);
 
     int count();
+
+    boolean CheckLogin_Home(String username, String password);
+
+    boolean Checkexist_User(String username);
     
 }

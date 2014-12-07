@@ -27,6 +27,7 @@
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->				
 	</head>
+        
 	<body>
 		<!-- START Header -->
 		<div class="headerWrap">
@@ -51,7 +52,7 @@
 					<h2>Creative &amp; flexible out of the box solutions!</h2>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tempor incididunt ut labore et dolore magna aliqua.</p>
 				</div>
-				<a href="#" class="button largeButton"><c:out value="${message}"></c:out> &raquo;</a>
+				<a href="#" class="button largeButton">Read more &raquo;</a>
 			</div>			
 		</section>
 			
@@ -96,6 +97,10 @@
                         {
                         %>
                         <%@include file="contact-us.jsp" %>
+                        <%}if(p.equals("test-ok"))
+                        {
+                        %>
+                        <%@include file="test.jsp" %>
                         <%}%>
                         
                     <%}%>
@@ -108,6 +113,7 @@
 		<!-- END Footer -->
 
 		<!-- Javascripts -->
+		<script type="text/javascript" src="javascripts/jquery-1.9.1.js"></script>
 		<script type="text/javascript" src="javascripts/jquery-1.8.2.min.js"></script>
 		<script type="text/javascript" src="javascripts/jquery.flexslider.js"></script>
 		<script type="text/javascript" src="javascripts/jquery.colorbox.js"></script>
@@ -115,8 +121,9 @@
 		<script type="text/javascript" src="javascripts/slick.min.js"></script>
 		<script type="text/javascript" src="javascripts/superfish.js"></script>
 		<script type="text/javascript" src="javascripts/hoverIntent.js"></script>
+		<script type="text/javascript" src="javascripts/jquery.validate.min.js"></script>
 		<script type="text/javascript" src="javascripts/jquery.quicksand.js"></script>
 		<script type="text/javascript" src="javascripts/tabs.js"></script>
-		<script type="text/javascript" src="javascripts/custom.js"></script>		
+		<script type="text/javascript" src="javascripts/custom.js"></script>	
 	</body>
 </html>

@@ -49,8 +49,16 @@
 							<li><a href="?page=news">News</a></li>
 							<li><a href="?page=contact-us">Contact</a></li>
                                                         <li><input type="text" name="search" placeholder="Search...." /><button type="submit" class="button">Submit</button> </li>
-							<li><a href="?page=login-register">Login or Register</a></li>
-						</ul>
+                                                        <%String username=(String)session.getAttribute("username");
+                                                            if(username != null)
+                                                            {%>
+                                                        <li><a href="?page=my-account">Hello <%= username %></a></li>
+                                                        <li><a href="AccountServlet?action=logout" onclick="return confirm('Are you sure?')" >Logout</a></li>
+                                                            <%}
+                                                            else{%>
+                                                        <li><a href="?page=login-register">Login or Register</a></li>
+                                                        <%}%>
+                                                </ul>
 					</nav>
 					<!-- END Menu -->				
 				</div>
