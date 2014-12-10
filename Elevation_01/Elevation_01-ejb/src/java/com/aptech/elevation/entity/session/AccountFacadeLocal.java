@@ -29,5 +29,13 @@ public interface AccountFacadeLocal {
     List<Account> findRange(int[] range);
 
     int count();
-    
+
+    boolean checkLogin(String u, String p);
+
+    Account findByCredit(String u, String p);
+
+    public boolean checkEmail(String email);
+
+    void removeById(int id);
+
 }

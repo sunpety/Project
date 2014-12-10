@@ -29,5 +29,7 @@ public interface NewsFacadeLocal {
     List<News> findRange(int[] range);
 
     int count();
+
+    List<News> findAllType(int type);
     
 }

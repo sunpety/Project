@@ -8,7 +8,6 @@ package com.aptech.elevation.entity;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
-import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -23,7 +22,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -47,6 +45,10 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Product.findByProductCreatedate", query = "SELECT p FROM Product p WHERE p.productCreatedate = :productCreatedate"),
     @NamedQuery(name = "Product.findByProductStatus", query = "SELECT p FROM Product p WHERE p.productStatus = :productStatus")})
 public class Product implements Serializable {
+
+    @JoinColumn(name = "feedback_id", referencedColumnName = "feedback_id")
+    @ManyToOne
+    private Feedbacks feedbackId;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -199,5 +201,13 @@ public class Product implements Serializable {
     public String toString() {
         return "com.aptech.elevation.entity.Product[ productId=" + productId + " ]";
     }
-    
+
+    public Feedbacks getFeedbackId() {
+        return feedbackId;
+    }
+
+    public void setFeedbackId(Feedbacks feedbackId) {
+        this.feedbackId = feedbackId;
+    }
+
 }

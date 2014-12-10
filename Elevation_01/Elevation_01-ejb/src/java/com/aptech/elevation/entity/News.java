@@ -38,6 +38,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "News.findByNewStatus", query = "SELECT n FROM News n WHERE n.newStatus = :newStatus"),
     @NamedQuery(name = "News.findByNewDate", query = "SELECT n FROM News n WHERE n.newDate = :newDate")})
 public class News implements Serializable {
+    @Size(max = 2147483647)
+    @Column(name = "news_image")
+    private String newsImage;
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -135,6 +138,14 @@ public class News implements Serializable {
     @Override
     public String toString() {
         return "com.aptech.elevation.entity.News[ newId=" + newId + " ]";
+    }
+
+    public String getNewsImage() {
+        return newsImage;
+    }
+
+    public void setNewsImage(String newsImage) {
+        this.newsImage = newsImage;
     }
     
 }

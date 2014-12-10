@@ -9,6 +9,7 @@ import com.aptech.elevation.entity.Category;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -16,6 +17,7 @@ import javax.persistence.PersistenceContext;
  */
 @Stateless
 public class CategoryFacade extends AbstractFacade<Category> implements CategoryFacadeLocal {
+
     @PersistenceContext(unitName = "Elevation_01-ejbPU")
     private EntityManager em;
 
@@ -27,5 +29,12 @@ public class CategoryFacade extends AbstractFacade<Category> implements Category
     public CategoryFacade() {
         super(Category.class);
     }
-    
+
+    @Override
+    public boolean checkName(String name) {
+        Query query = em.createNamedQuery("Category.findByCategoryName");
+        query.setParameter("categoryName", name);
+        return query.getResultList().size() > 0;
+    }
+
 }
