@@ -4,8 +4,10 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 <%@taglib prefix="" uri="http://java.sun.com/jstl/fmt" %>
 <%--<c:url value="/manager/product-email" var="validateURL" />--%>
+
+<!--<script type="text/javascript" src="<c:url value="/ckeditor/ckeditor.js" />"></script>-->
 <%
-    if (request.getParameter("product") != null) {
+    if (request.getAttribute("product") != null) {
         Product product = (Product) request.getAttribute("product");
     }
 %>
@@ -106,10 +108,10 @@
                     <div class="form-group">
                         <label>Description</label>
                         <div>
-                            <textarea class="form-control"
+                            <textarea class="ckeditor"
                                       name="description"
                                       rows="10"
-                                      value="${product.productDescription}"></textarea>
+                                      >${product.productDescription}</textarea>
                         </div>
                     </div>    
                 </div>

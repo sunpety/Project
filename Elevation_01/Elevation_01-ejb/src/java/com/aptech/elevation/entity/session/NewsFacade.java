@@ -35,7 +35,7 @@ public class NewsFacade extends AbstractFacade<News> implements NewsFacadeLocal 
     @SuppressWarnings("unchecked")
     public List<News> findAllType(int type) {
         Query query = em.createNamedQuery("News.findByNewType");
-        query.setParameter("newsType", type);
+        query.setParameter("newType", type);
         return query.getResultList();
     }
 

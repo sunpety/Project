@@ -83,7 +83,7 @@
         <script src="${baseURL}/plugins/jquery.placeholder.js"></script>
         <script src="${baseURL}/plugins/fastclick.js"></script>
         <!-- /core scripts -->
-        
+
         <!-- page level scripts -->
 
         <!-- /page level scripts -->
@@ -97,6 +97,9 @@
 
         <script src="${baseURL}/plugins/parsley.remote.min.js"></script>
         <script src="${baseURL}/plugins/parsley.min.js"></script>
+<!--        <script src="<c:url value="/ckeditor/ckeditor.js" />"></script>-->
+
+        <script type="text/javascript" src="<c:url value="/ckeditor/ckeditor.js" />"></script>
         <!-- /page script -->
 
         <c:if test="${not empty scripts}" >

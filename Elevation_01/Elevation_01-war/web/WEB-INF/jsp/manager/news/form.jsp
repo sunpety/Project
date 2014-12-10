@@ -62,10 +62,10 @@
                         <label>Content</label>
                         <div>
                             <textarea  type="text" 
-                                       class="form-control" 
+                                       class="ckeditor" 
                                        name="content" 
                                        rows="10"
-                                       placeholder="" value="${news.newsContent}"></textarea>
+                                       placeholder="" >${news.newsContent}</textarea>
                         </div>
                     </div>
                 </div>

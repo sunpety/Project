@@ -4,7 +4,6 @@
 <%@taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
     ArrayList scripts = new ArrayList();
-//    scripts.add("/ckeditor/ckeditor.js");
 //    scripts.add("/manager/js/formproduct.js");
     request.setAttribute("scripts", scripts);
 %>

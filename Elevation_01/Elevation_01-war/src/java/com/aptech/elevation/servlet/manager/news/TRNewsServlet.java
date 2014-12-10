@@ -5,7 +5,6 @@
  */
 package com.aptech.elevation.servlet.manager.news;
 
-import com.aptech.elevation.entity.Category;
 import com.aptech.elevation.entity.News;
 import com.aptech.elevation.entity.session.NewsFacadeLocal;
 import java.io.IOException;
@@ -45,7 +44,7 @@ public class TRNewsServlet extends HttpServlet {
             out.print("<tr>");
             out.print("<td>" + news.getNewsImage() + "</td>");
             out.print("<td>" + news.getNewTitle() + "</td>");
-            out.print("<td>" + news.getNewDate() + "</td>");
+            out.print("<td>" + news.getNewDate().toString() + "</td>");
             out.print("<td>" + news.getNewStatus() + "</td>");
             out.print("<td><a href='" + request.getContextPath() + "/manager/news/delete-news?id=" + news.getNewId() + "' onclick=\"return confirm('Are you sure to delete ?');\">delete</a> || <a href='" + request.getContextPath() + "/manager/news/edit-news?id=" + news.getNewId() + "'>edit</a> </td>");
             out.print("</tr>");

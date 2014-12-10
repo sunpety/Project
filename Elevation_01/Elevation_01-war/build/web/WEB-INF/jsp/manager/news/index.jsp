@@ -16,7 +16,9 @@
                     <th>Status</th>
                     <th></th>
                 </tr>
-                <jsp:include page="/manager/news/tr-acc.do" flush="false" />
+                <jsp:include page="/manager/news/tr-acc.do" flush="false" >
+                    <jsp:param name="type" value="1"/>
+                </jsp:include>
             </table>
         </div>
     </div>

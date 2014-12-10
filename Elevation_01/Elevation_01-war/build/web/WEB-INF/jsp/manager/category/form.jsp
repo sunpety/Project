@@ -5,10 +5,9 @@
 <%@taglib prefix="" uri="http://java.sun.com/jstl/fmt" %>
 <%--<c:url value="/manager/category-email" var="validateURL" />--%>
 <%
-    if (request.getParameter("category") != null) {
+    if (request.getAttribute("category") != null) {
         Category category = (Category) request.getAttribute("category");
     }
-
 %>
 <c:if test="param.feildError == name">
     <script>
