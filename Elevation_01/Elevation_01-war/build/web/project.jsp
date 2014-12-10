@@ -4,66 +4,19 @@
     Author     : NeedMoney
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <h3 class="headSeparator">Recent projects</h3>
         <div class="project-item">
+            <c:forEach var="p" items="${projects}">
 			<div class="grid_3 alpha">
 				<div class="works">
-					<a class="colorbox" href="images/examples/wide_image.jpg" title="Your project title here"><img class="project" src="images/examples/regular_image.jpg" alt="example work" /></a>
-					<h5>Project title</h5>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-					<a href="#">read more &rarr;</a>
+                                    <a class="colorbox" href="${p.newConten}" title="${p.newTitle}"><img class="project" src="${p.newConten}" width="225" height="121" alt="${p.newTitle}" /></a>
+					<h5>${p.newTitle}</h5>
 				</div>
 			</div>
-			<div class="grid_3 alpha">
-				<div class="works">
-					<a class="colorbox" href="images/examples/wide_image.jpg" title="Your project title here"><img class="project" src="images/examples/regular_image.jpg" alt="example work" /></a>
-					<h5>Project title</h5>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-					<a href="#">read more &rarr;</a>
-				</div>
-			</div>
-			<div class="grid_3 alpha">
-				<div class="works">
-					<a class="colorbox" href="images/examples/wide_image.jpg" title="Your project title here"><img class="project" src="images/examples/regular_image.jpg" alt="example work" /></a>
-					<h5>Project title</h5>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-					<a href="#">read more &rarr;</a>
-				</div>
-			</div>			
-			<div class="grid_3 alpha">
-				<div class="works">
-					<a class="colorbox" href="images/examples/wide_image.jpg" title="Your project title here"><img class="project" src="images/examples/regular_image.jpg" alt="example work" /></a>
-					<h6>Project title</h6>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-					<a href="#">read more &rarr;</a>
-				</div>
-			</div>
-			<div class="grid_3 alpha">
-				<div class="works">
-					<a class="colorbox" href="images/examples/wide_image.jpg" title="Your project title here"><img class="project" src="images/examples/regular_image.jpg" alt="example work" /></a>
-					<h6>Project title</h6>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-					<a href="#">read more &rarr;</a>
-				</div>
-			</div>
-			<div class="grid_3 alpha">
-				<div class="works">
-					<a class="colorbox" href="images/examples/wide_image.jpg" title="Your project title here"><img class="project" src="images/examples/regular_image.jpg" alt="example work" /></a>
-					<h6>Project title</h6>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-					<a href="#">read more &rarr;</a>
-				</div>
-			</div>
-			<div class="grid_3 alpha">
-				<div class="works">
-					<a class="colorbox" href="images/examples/wide_image.jpg" title="Your project title here"><img class="project" src="images/examples/regular_image.jpg" alt="example work" /></a>
-					<h6>Project title</h6>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-					<a href="#">read more &rarr;</a>
-				</div>
-			</div>
+</c:forEach>
 </div>
 			<div class="clear"></div>			
 			<br />

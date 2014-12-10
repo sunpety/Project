@@ -54,7 +54,7 @@
 			
 			<div class="copyright">
 				<div class="grid_12">
-					<p>Copyright &copy; 2012 <a href="#">Elevate</a>. All rights reserved</p>
+					<p>Copyright &copy; 2014 <a href="#">Ngo Duy Dai</a>. All rights reserved</p>
 				</div>
 			</div>		
 		</footer>

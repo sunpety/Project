@@ -29,5 +29,7 @@ public interface FeedbacksFacadeLocal {
     List<Feedbacks> findRange(int[] range);
 
     int count();
+
+    List<Feedbacks> FindComment_Type(boolean status);
     
 }

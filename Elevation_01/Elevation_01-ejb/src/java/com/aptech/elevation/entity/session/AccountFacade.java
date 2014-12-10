@@ -6,6 +6,7 @@
 package com.aptech.elevation.entity.session;
 
 import com.aptech.elevation.entity.Account;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -31,7 +32,7 @@ public class AccountFacade extends AbstractFacade<Account> implements AccountFac
 
     @Override
     public boolean CheckLogin_Home(String u, String p) {
-        Query q = em.createQuery("SELECT a FROM Account a WHERE a.accountUsername = :u and a.accountPassword = :p and a.rolesId = 0");
+        Query q = em.createQuery("SELECT a FROM Account a WHERE a.accountUsername = :u and a.accountPassword = :p");
         q.setParameter("u", u);
         q.setParameter("p", p);
         return q.getResultList().size()>0;
@@ -42,6 +43,13 @@ public class AccountFacade extends AbstractFacade<Account> implements AccountFac
         Query q = em.createQuery("SELECT a FROM Account a WHERE a.accountUsername = :u");
         q.setParameter("u", username);
         return q.getResultList().size()>0;
+    }
+
+    @Override
+    public List<Account> findAccount_ByUsername(String username) {
+        Query q = em.createQuery("SELECT a FROM Account a WHERE a.accountUsername = :u");
+        q.setParameter("u", username);
+        return q.getResultList();
     }
     
     

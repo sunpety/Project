@@ -23,6 +23,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author NeedMoney
  */
 public class ProductServlet extends HttpServlet {
+
     @EJB
     private ProductFacadeLocal productFacade;
 
@@ -38,13 +39,11 @@ public class ProductServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            List<Product> list=productFacade.findAll();
-            request.setAttribute("products",list);            
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/product.jsp");
-            dispatcher.forward(request, response);
-        }
+            List<Product> list = productFacade.findAll();
+            request.setAttribute("products", list);
+             request.getRequestDispatcher("/product.jsp").include(request, response);
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

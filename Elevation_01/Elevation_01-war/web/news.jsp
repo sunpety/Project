@@ -4,6 +4,7 @@
     Author     : NeedMoney
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 		<!-- START Page title -->
@@ -27,69 +28,17 @@
 			
 			<!-- START Portfolio -->
 			<ul class="portfolio clearfix">
+                            <c:forEach var="n" items="${news}">
 				<li data-id="id-1" data-type="web" class="grid_3 alpha">
-					<a class="colorbox" href="images/examples/wide_image.jpg" title="Your project title here"><img class="project" src="images/examples/regular_image.jpg" alt="" /></a>
+                                    <a class="colorbox" href="${n.newTitle}" title="${n.newTitle}"><img width="220px" height="128px" class="project" src="${n.newTitle}" alt="${n.newTitle}" /></a>
 					<div class="projectInfo">
-						<h5>A nice title</h5>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+						<h5>${n.newTitle}</h5>
+						<p>${n.newConten}</p>
+                                                <a href="index.jsp?page=news_content&news_id=${n.newId}">read more &rarr;</a>
 					</div>
 				</li>
+                                </c:forEach>
 				
-				<li data-id="id-2" data-type="web" class="grid_3">
-					<a class="colorbox" href="images/examples/wide_image.jpg" title="Your project title here"><img class="project" src="images/examples/regular_image.jpg" alt="" /></a>
-					<div class="projectInfo">
-						<h5>A nice title</h5>
-						<p>Tempor incididunt ut labore et dolore magna aliqua.</p>
-					</div>
-				</li>
-				
-				<li data-id="id-3" data-type="print" class="grid_3">
-					<a class="colorbox" href="images/examples/wide_image.jpg" title="Your project title here"><img class="project" src="images/examples/regular_image.jpg" alt="" /></a>
-					<div class="projectInfo">
-						<h5>A nice title</h5>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-					</div>
-				</li>
-				
-				<li data-id="id-4" data-type="ror" class="grid_3 omega">
-					<a class="colorbox" href="images/examples/wide_image.jpg" title="Your project title here"><img class="project" src="images/examples/regular_image.jpg" alt="" /></a>
-					<div class="projectInfo">
-						<h5>A nice title</h5>
-						<p>Tempor incididunt ut labore et dolore magna aliqua.</p>
-					</div>
-				</li>
-								
-				<li data-id="id-5" data-type="multimedia" class="grid_3 alpha">
-					<a class="colorbox" href="images/examples/wide_image.jpg" title="Your project title here"><img class="project" src="images/examples/regular_image.jpg" alt="" /></a>
-					<div class="projectInfo">
-						<h5>A nice title</h5>
-						<p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore</p>
-					</div>
-				</li>
-				
-				<li data-id="id-6" data-type="web" class="grid_3">
-					<a class="colorbox" href="images/examples/wide_image.jpg" title="Your project title here"><img class="project" src="images/examples/regular_image.jpg" alt="" /></a>
-					<div class="projectInfo">
-						<h5>A nice title</h5>
-						<p>Tempor incididunt ut labore et dolore magna aliqua.</p>
-					</div>
-				</li>
-				
-				<li data-id="id-7" data-type="ror" class="grid_3">
-					<a class="colorbox"  href="images/examples/wide_image.jpg" title="Your project title here"><img class="project" src="images/examples/regular_image.jpg" alt="" /></a>
-					<div class="projectInfo">
-						<h5>A nice title</h5>
-						<p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore</p>
-					</div>
-				</li>
-				
-				<li data-id="id-8" data-type="print" class="grid_3 omega">
-					<a class="colorbox" href="images/examples/wide_image.jpg" title="Your project title here"><img class="project" src="images/examples/regular_image.jpg" alt="" /></a>
-					<div class="projectInfo">
-						<h5>A nice title</h5>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-					</div>
-				</li>
 			</ul><!-- END portfolio -->
 			
 			<div class="pagination">

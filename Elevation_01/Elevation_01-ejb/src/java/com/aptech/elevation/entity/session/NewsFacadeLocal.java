@@ -29,5 +29,11 @@ public interface NewsFacadeLocal {
     List<News> findRange(int[] range);
 
     int count();
+
+    List<News> DisplayProject_ByType();
+
+    List<News> FindAll_ByType(int type);
+
+    List<News> FindNew_ById(int new_id);
     
 }

@@ -32,7 +32,7 @@
 		<!-- START Header -->
 		<div class="headerWrap">
 			<header>
-                            <%@include file="header.jsp" %>
+                            <jsp:include page="menu.do"/>
 			</header>
 		</div>
 		<div class="baseHeader"></div>
@@ -51,7 +51,9 @@
 				<div class="grid_8">
 					<h2>Creative &amp; flexible out of the box solutions!</h2>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tempor incididunt ut labore et dolore magna aliqua.</p>
-				</div>
+				
+                                
+                                </div>
 				<a href="#" class="button largeButton">Read more &raquo;</a>
 			</div>			
 		</section>
@@ -59,10 +61,10 @@
 		<!-- START Main content -->
 
 			<!-- START Recent product -->
-                        <%@include file="product.jsp" %>
+                        <jsp:include page="product.do"/>
 			<!-- END Recent product -->	
 			<!-- START Services -->
-                        <%@include file="project.jsp" %>
+                        <jsp:include page="project.do"/>
 			<!-- END Services -->		
                     <%}
                     else
@@ -76,19 +78,19 @@
                         if(p.equals("news"))
                         {
                         %>
-                        <%@include file="news.jsp" %>
+                        <jsp:include page="news.do" flush="true"/>
                         <%}if(p.equals("news_content"))
                         {
                         %>
-                        <%@include file="news_content.jsp" %>
+                        <jsp:include page="contentnew.do" flush="true"/>
                         <%}if(p.equals("category"))
                         {
                         %>
-                        <%@include file="category.jsp" %>
+                        <jsp:include page="categoryshow.do" flush="true"/>
                         <%}if(p.equals("product-detail"))
                         {
                         %>
-                        <%@include file="product_details.jsp" %>
+                        <jsp:include page="productdetail.do" flush="true"/>
                         <%}if(p.equals("about-us"))
                         {
                         %>
@@ -96,11 +98,15 @@
                         <%}if(p.equals("contact-us"))
                         {
                         %>
-                        <%@include file="contact-us.jsp" %>
+                        <jsp:include page="contact.do" flush="true"/>
                         <%}if(p.equals("test-ok"))
                         {
                         %>
                         <%@include file="test.jsp" %>
+                        <%}if(p.equals("my-account"))
+                        {
+                        %>
+                        <%@include file="my-account.jsp" %>
                         <%}%>
                         
                     <%}%>

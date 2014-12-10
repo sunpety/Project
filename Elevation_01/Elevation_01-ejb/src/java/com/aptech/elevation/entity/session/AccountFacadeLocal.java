@@ -33,5 +33,7 @@ public interface AccountFacadeLocal {
     boolean CheckLogin_Home(String username, String password);
 
     boolean Checkexist_User(String username);
+
+    List<Account> findAccount_ByUsername(String username);
     
 }

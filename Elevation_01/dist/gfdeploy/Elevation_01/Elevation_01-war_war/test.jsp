@@ -5,10 +5,14 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="com.aptech.elevation.entity.Product"%>
+<%@page import="java.util.List"%>
+<%
+List<Product> list=(List<Product>)session.getAttribute("products");
+
+%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<h1>Hello</h1>
-<c:forEach var="a" items="${accounts}">
-    <br>${a.accountUsername}
-    
+<h1>hello</h1>
+<c:forEach var="p" items="list">
+    ${p.productName}---
 </c:forEach>

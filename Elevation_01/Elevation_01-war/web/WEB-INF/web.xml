@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
     <servlet>
         <servlet-name>AccountServlet</servlet-name>
         <servlet-class>com.servlet.account.AccountServlet</servlet-class>
@@ -8,17 +11,119 @@
         <servlet-name>ProductServlet</servlet-name>
         <servlet-class>com.servlet.index.ProductServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProjectServlet</servlet-name>
+        <servlet-class>com.servlet.index.ProjectServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProductsServlet</servlet-name>
+        <servlet-class>com.servlet.product.ProductsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProductActionServlet</servlet-name>
+        <servlet-class>com.servlet.product.ProductActionServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AboutServlet</servlet-name>
+        <servlet-class>com.servlet.about.AboutServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CategoryServlet</servlet-name>
+        <servlet-class>com.servlet.index.MenuServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ContactServlet</servlet-name>
+        <servlet-class>com.servlet.contactus.ContactServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ContactActionServlet</servlet-name>
+        <servlet-class>com.servlet.contactus.ContactActionServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>NewsServlet</servlet-name>
+        <servlet-class>com.servlet.news.NewsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ContentServlet</servlet-name>
+        <servlet-class>com.servlet.news.ContentServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CategoryShowServlet</servlet-name>
+        <servlet-class>com.servlet.category.CategoryShowServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AccountServlet</servlet-name>
         <url-pattern>/AccountServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ProductServlet</servlet-name>
-        <url-pattern>/product.jsp</url-pattern>
+        <url-pattern>/product.do</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProjectServlet</servlet-name>
+        <url-pattern>/project.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CategoryServlet</servlet-name>
+        <url-pattern>/menu.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProductsServlet</servlet-name>
+        <url-pattern>/productdetail.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProductActionServlet</servlet-name>
+        <url-pattern>/ProductActionServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AboutServlet</servlet-name>
+        <url-pattern>/AboutServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ContactServlet</servlet-name>
+        <url-pattern>/contact.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ContactActionServlet</servlet-name>
+        <url-pattern>/ContactActionServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NewsServlet</servlet-name>
+        <url-pattern>/news.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ContentServlet</servlet-name>
+        <url-pattern>/contentnew.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CategoryShowServlet</servlet-name>
+        <url-pattern>/categoryshow.do</url-pattern>
+    </servlet-mapping>
+    
+    
+    
+    
+    <servlet>
+    <servlet-name>CartController</servlet-name>
+    <servlet-class>in.techfreaks.shoppingcart.servlet.CartController</servlet-class>
+  </servlet>
+
+  <!-- Define the Manager Servlet Mapping -->
+  <servlet-mapping>
+    <servlet-name>CartController</servlet-name>
+      <url-pattern>/servlet/*</url-pattern>
+  </servlet-mapping>
+    
+    
+    
+    
     <session-config>
         <session-timeout>
             30
         </session-timeout>
+        <cookie-config>
+            <http-only>true</http-only>
+        </cookie-config>
+        <tracking-mode>COOKIE</tracking-mode>
     </session-config>
 </web-app>

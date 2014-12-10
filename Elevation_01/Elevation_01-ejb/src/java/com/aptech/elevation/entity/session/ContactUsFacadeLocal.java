@@ -29,5 +29,7 @@ public interface ContactUsFacadeLocal {
     List<ContactUs> findRange(int[] range);
 
     int count();
+
+    List<ContactUs> FindContact_ByOffice(String office);
     
 }

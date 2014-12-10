@@ -6,9 +6,11 @@
 package com.aptech.elevation.entity.session;
 
 import com.aptech.elevation.entity.Feedbacks;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -26,6 +28,13 @@ public class FeedbacksFacade extends AbstractFacade<Feedbacks> implements Feedba
 
     public FeedbacksFacade() {
         super(Feedbacks.class);
+    }
+
+    @Override
+    public List<Feedbacks> FindComment_Type(boolean status) {
+        Query q = em.createQuery("SELECT f FROM Feedbacks f WHERE f.feedbackStatus = :feedbackStatus");
+        q.setParameter("feedbackStatus", status);
+        return q.getResultList();
     }
     
 }

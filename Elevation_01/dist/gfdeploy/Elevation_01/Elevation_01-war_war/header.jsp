@@ -4,6 +4,7 @@
     Author     : NeedMoney
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 				<div class="grid_12 clearfix">
@@ -17,46 +18,32 @@
 					<nav id="MenuBar" class="grid_8 omega floatRight">
 						<ul class="navList clearfix">
 							<li><a class="selected" href="index.jsp">Home</a></li>
-							<li><a href="?page=about-us">About</a>
+							<li><a href="index.jsp?page=about-us">About</a>
 								<ul class="dropMenu">
-									<li><a href="shortcodes.html">Shortcodes</a></li>
-									<li><a href="typography.html">Typography</a></li>
-									<li><a href="left_sidebar.html">Left sidebar</a></li>
-									<li><a href="right_sidebar.html">Right sidebar</a></li>
-									<li><a href="two_sidebars.html">Two sidebars</a></li>
-									<li><a href="full_width.html">Full width</a></li>
-									<li><a href="faq.html">FAQ</a></li>
-									<li><a href="error.html">Error page</a></li>
-									<li><a href="grid.html">Columns</a></li>
+                                                                    <c:forEach var="n" items="${news_type}">
+									<li><a href="?page=news_content&news_id=${n.newId}">${n.newTitle}</a></li>
+                                                                    </c:forEach>    
 								</ul>
 							</li>
-							<li><a href="">Services</a></li>
-							<li><a href="?page=category">Product</a>
+							<li><a href="#">Services</a></li>
+							<li><a href="#">Product</a>
 								<ul class="dropMenu">
-									<li><a href="?page=product-detail">Product</a></li>
-									<li><a href="two_columns.html">Two columns</a></li>
-									<li><a href="four_columns.html">Four columns</a></li>
-									<li><a href="project_details.html">Project details</a></li>
-									<li class="nest"><a href="#">A second dropdown</a>
-										<ul>
-											<li><a href="#">Another page</a></li>
-											<li><a href="#">Another page</a></li>
-											<li><a href="#">Another page</a></li>
-										</ul>
-									</li>
+                                                                    <c:forEach var="c" items="${categorys}">
+									<li><a href="?page=category&category_id=${c.categoryId}">${c.categoryName}</a></li>
+                                                                    </c:forEach>    
 								</ul>
 							</li>
-							<li><a href="?page=news">News</a></li>
-							<li><a href="?page=contact-us">Contact</a></li>
+							<li><a href="index.jsp?page=news">News</a></li>
+							<li><a href="index.jsp?page=contact-us">Contact</a></li>
                                                         <li><input type="text" name="search" placeholder="Search...." /><button type="submit" class="button">Submit</button> </li>
                                                         <%String username=(String)session.getAttribute("username");
                                                             if(username != null)
                                                             {%>
-                                                        <li><a href="?page=my-account">Hello <%= username %></a></li>
+                                                        <li><a href="index.jsp?page=my-account">Hello <%= username %></a></li>
                                                         <li><a href="AccountServlet?action=logout" onclick="return confirm('Are you sure?')" >Logout</a></li>
                                                             <%}
                                                             else{%>
-                                                        <li><a href="?page=login-register">Login or Register</a></li>
+                                                        <li><a href="index.jsp?page=login-register">Login or Register</a></li>
                                                         <%}%>
                                                 </ul>
 					</nav>

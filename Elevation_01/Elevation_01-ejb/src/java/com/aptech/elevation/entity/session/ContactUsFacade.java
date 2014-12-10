@@ -6,9 +6,11 @@
 package com.aptech.elevation.entity.session;
 
 import com.aptech.elevation.entity.ContactUs;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -27,5 +29,13 @@ public class ContactUsFacade extends AbstractFacade<ContactUs> implements Contac
     public ContactUsFacade() {
         super(ContactUs.class);
     }
+
+    @Override
+    public List<ContactUs> FindContact_ByOffice(String office) {
+        Query q = em.createQuery("SELECT c FROM ContactUs c WHERE c.contactWebsiteOffice = :contactWebsiteOffice");
+        q.setParameter("contactWebsiteOffice", office);
+        return q.getResultList();
+    }
+  
     
 }
